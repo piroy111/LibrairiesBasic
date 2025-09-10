@@ -33,7 +33,7 @@ BasicItem {
     /*
       Signal
       */
-    signal clicked      // mouse click
+    signal clicked(real mouseX, real mouseY)      // mouse click
     signal entered    //  if the mouse is already on the image when visible is true, then the signal is sent at start
     signal exited       // hover
     /*
@@ -52,6 +52,8 @@ BasicItem {
       */
     property size sourceSize: mThisBasicImageSource_Main.sourceSize
     property bool mIsImageHoverExists: mSourceHover || sourceSimpleHover
+    property real mClickedMouseX
+    property real mClickedMouseY
 
     /*
       Loader
@@ -175,8 +177,13 @@ BasicItem {
             if (mIsBumpIfClick) {
                 mThisAnimationBump.start();
             } else {
-                mTHIS_BASIC_IMAGE_SOURCE_HOVER_V2.clicked()
+                mTHIS_BASIC_IMAGE_SOURCE_HOVER_V2.clicked(mThisMouseArea_Hover.mouseX, mThisMouseArea_Hover.mouseY)
             }
+            /*
+              Pass to parent the place of the click
+              */
+            mTHIS_BASIC_IMAGE_SOURCE_HOVER_V2.mClickedMouseX = mThisMouseArea_Hover.mouseX
+            mTHIS_BASIC_IMAGE_SOURCE_HOVER_V2.mClickedMouseY = mThisMouseArea_Hover.mouseY
         }
         onMouseXChanged: {  //  needed in case we start directly on the image
             checkIfInside();
@@ -233,7 +240,15 @@ BasicItem {
     }
 
 
-
+    /*
+      Getters & Setters
+      */
+    function getmClickedMouseX() {
+        return mClickedMouseX;
+    }
+    function getmClickedMouseY() {
+        return mClickedMouseY;
+    }
 
 }
 

@@ -64,6 +64,8 @@ BasicItem {
       Variables
       */
     property bool mIsImageHoverExists: mSourceHover || sourceSimpleHover
+    property real mClickedMouseX
+    property real mClickedMouseY
 
     /*
       Loader
@@ -262,9 +264,8 @@ BasicItem {
             checkIfInside();
             if (mIsBumpIfHover) {
                 mThisAnimationBump.start();
-            } else {
-                mTHIS_BASIC_IMAGE_HOVER_V1.entered()
             }
+            mTHIS_BASIC_IMAGE_HOVER_V1.entered()
         }
         onExited: {
             checkIfInside();
@@ -273,8 +274,14 @@ BasicItem {
         onClicked: {
             if (mIsBumpIfClick) {
                 mThisAnimationBump.start();
+            } else {
+                mTHIS_BASIC_IMAGE_HOVER_V1.clicked()
             }
-            mTHIS_BASIC_IMAGE_HOVER_V1.clicked()
+            /*
+              Pass to parent the place of the click
+              */
+            mTHIS_BASIC_IMAGE_HOVER_V1.mClickedMouseX = mThisMouseArea_Hover.mouseX
+            mTHIS_BASIC_IMAGE_HOVER_V1.mClickedMouseY = mThisMouseArea_Hover.mouseY
         }
         onMouseXChanged: {  //  needed in case we start directly on the image
             checkIfInside();
@@ -324,12 +331,21 @@ BasicItem {
             if (!running) {
                 mThisImage.widthPercent = 1;
                 mThisImage.heightPercent = 1;
-                mTHIS_BASIC_IMAGE_HOVER_V1.entered()
+                mTHIS_BASIC_IMAGE_HOVER_V1.clicked()
             }
         }
 
     }
 
+    /*
+      Getters & Setters
+      */
+    function getmClickedMouseX() {
+        return mClickedMouseX;
+    }
+    function getmClickedMouseY() {
+        return mClickedMouseY;
+    }
 
 
 

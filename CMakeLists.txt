@@ -66,8 +66,7 @@ qt_add_qml_module(appLibrairiesBasic
     QML_FILES ${QmlFiles}
     # RESOURCES ${AssetsFiles}
     NO_RESOURCE_TARGET_PATH
-    RESOURCES .gitignore
-    QML_FILES qml/basic_librairies/BasicVideo/v1/BasicVideoJumpManager.qml
+    # RESOURCES .gitignore
 )
 
 
