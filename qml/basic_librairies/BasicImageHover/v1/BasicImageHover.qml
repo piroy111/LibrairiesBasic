@@ -64,8 +64,11 @@ BasicItem {
       Variables
       */
     property bool mIsImageHoverExists: mSourceHover || sourceSimpleHover
+<<<<<<< HEAD
     property real mClickedMouseX
     property real mClickedMouseY
+=======
+>>>>>>> 0f177fcbc40504218cceb559ce0dca9be2009fca
 
     /*
       Loader
@@ -264,8 +267,14 @@ BasicItem {
             checkIfInside();
             if (mIsBumpIfHover) {
                 mThisAnimationBump.start();
+<<<<<<< HEAD
             }
             mTHIS_BASIC_IMAGE_HOVER_V1.entered()
+=======
+            } else {
+                mTHIS_BASIC_IMAGE_HOVER_V1.entered()
+            }
+>>>>>>> 0f177fcbc40504218cceb559ce0dca9be2009fca
         }
         onExited: {
             checkIfInside();
@@ -274,6 +283,7 @@ BasicItem {
         onClicked: {
             if (mIsBumpIfClick) {
                 mThisAnimationBump.start();
+<<<<<<< HEAD
             } else {
                 mTHIS_BASIC_IMAGE_HOVER_V1.clicked()
             }
@@ -282,6 +292,10 @@ BasicItem {
               */
             mTHIS_BASIC_IMAGE_HOVER_V1.mClickedMouseX = mThisMouseArea_Hover.mouseX
             mTHIS_BASIC_IMAGE_HOVER_V1.mClickedMouseY = mThisMouseArea_Hover.mouseY
+=======
+            }
+            mTHIS_BASIC_IMAGE_HOVER_V1.clicked()
+>>>>>>> 0f177fcbc40504218cceb559ce0dca9be2009fca
         }
         onMouseXChanged: {  //  needed in case we start directly on the image
             checkIfInside();
@@ -331,12 +345,17 @@ BasicItem {
             if (!running) {
                 mThisImage.widthPercent = 1;
                 mThisImage.heightPercent = 1;
+<<<<<<< HEAD
                 mTHIS_BASIC_IMAGE_HOVER_V1.clicked()
+=======
+                mTHIS_BASIC_IMAGE_HOVER_V1.entered()
+>>>>>>> 0f177fcbc40504218cceb559ce0dca9be2009fca
             }
         }
 
     }
 
+<<<<<<< HEAD
     /*
       Getters & Setters
       */
@@ -346,6 +365,8 @@ BasicItem {
     function getmClickedMouseY() {
         return mClickedMouseY;
     }
+=======
+>>>>>>> 0f177fcbc40504218cceb559ce0dca9be2009fca
 
 
 

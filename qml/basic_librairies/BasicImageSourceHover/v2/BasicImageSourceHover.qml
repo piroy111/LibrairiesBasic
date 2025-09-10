@@ -52,8 +52,11 @@ BasicItem {
       */
     property size sourceSize: mThisBasicImageSource_Main.sourceSize
     property bool mIsImageHoverExists: mSourceHover || sourceSimpleHover
+<<<<<<< HEAD
     property real mClickedMouseX
     property real mClickedMouseY
+=======
+>>>>>>> 0f177fcbc40504218cceb559ce0dca9be2009fca
 
     /*
       Loader
@@ -177,6 +180,7 @@ BasicItem {
             if (mIsBumpIfClick) {
                 mThisAnimationBump.start();
             } else {
+<<<<<<< HEAD
                 mTHIS_BASIC_IMAGE_SOURCE_HOVER_V2.clicked(mThisMouseArea_Hover.mouseX, mThisMouseArea_Hover.mouseY)
             }
             /*
@@ -184,6 +188,10 @@ BasicItem {
               */
             mTHIS_BASIC_IMAGE_SOURCE_HOVER_V2.mClickedMouseX = mThisMouseArea_Hover.mouseX
             mTHIS_BASIC_IMAGE_SOURCE_HOVER_V2.mClickedMouseY = mThisMouseArea_Hover.mouseY
+=======
+                mTHIS_BASIC_IMAGE_SOURCE_HOVER_V2.clicked()
+            }
+>>>>>>> 0f177fcbc40504218cceb559ce0dca9be2009fca
         }
         onMouseXChanged: {  //  needed in case we start directly on the image
             checkIfInside();
@@ -240,6 +248,7 @@ BasicItem {
     }
 
 
+<<<<<<< HEAD
     /*
       Getters & Setters
       */
@@ -249,6 +258,9 @@ BasicItem {
     function getmClickedMouseY() {
         return mClickedMouseY;
     }
+=======
+
+>>>>>>> 0f177fcbc40504218cceb559ce0dca9be2009fca
 
 }
 
